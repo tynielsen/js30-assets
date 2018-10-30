@@ -13,7 +13,7 @@ body,html {
 .keys {
   display: flex;
   flex: 1;
-  /* min-height: 50vh; */
+  /* min-height: 100vh; */
   width: 76.8rem;
   margin: auto;
   align-items: center;
