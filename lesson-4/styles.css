@@ -1,0 +1,52 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  width: 800px;
+  margin: auto;
+  font-size: 1.6rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.codes-container {
+  margin-bottom: 6.0rem;
+}
+
+.codes-container:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+  line-height: 0;
+}
+
+.codes-container code {
+  background-color: rgba(0, 0, 0, 0.18) !important;
+}
+
+.codes-container pre {
+  border: 1px solid darkgray;
+  border-radius: 2px;
+}
+
+.codes-container pre + pre {
+  width: 45%;
+  float: left;
+}
+
+.codes-container pre:last-child {
+  width: 45%;
+  float: right;
+}
+
+.example-container pre {
+  border: 1px solid darkgray;
+  border-radius: 2px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.example-container pre code {
+  padding: 12px 25px;
+}
