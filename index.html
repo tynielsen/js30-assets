@@ -6,16 +6,21 @@
 	<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+  <div class="bg-vid-container">
+    <div id="vid"></div>
+  </div>
+
   <h1>JavaScript 30: Build 30 things in 30 days (more or less)</h1>
   
   <h2>Table of Contents:</h2>
+
   <ul class="table-of-contents">
     <li><a href="lesson-1/index.html">Lesson 1: Drumkit</a></li>
     <li><a href="lesson-2/index.html">Lesson 2: CSS &amp; JS Clock</a></li>
     <li><a href="lesson-3/index.html">Lesson 3: Playing w/CSS Variables &amp; JS</a></li>
     <li><a href="lesson-4/index.html">Lesson 4: Array Cardio Day 1</a></li>
+    <li><a href="lesson-5/index.html">Lesson 5: Flex Panesl Image Gallery</a></li>
     <!--
-    <li><a href=""></a></li>
     <li><a href=""></a></li>
     <li><a href=""></a></li>
     <li><a href=""></a></li>
@@ -47,5 +52,34 @@
   </ul>
 
   <script src="assets/main.js"></script>
+  <script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    function onYouTubeIframeAPIReady() {
+      var player;
+      player = new YT.Player('vid', {
+        videoId: 'cfOa1a8hYP8',
+        playerVars: {
+          'autoplay': 1,
+          'controls': 0,
+          'fs': 0,
+          'iv_load_policy': 3,
+          'loop': 1,
+          'modestbranding': 1
+        },
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+
+    function onPlayerReady(e) {
+      e.target.setVolume(20);
+      // e.target.playVideo();
+    }
+  </script>
 </body>
 </html>
