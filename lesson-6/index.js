@@ -22,11 +22,12 @@ function displayMatches() {
   const matchArray = findMatches(this.value, cities);
   const html = matchArray.map(place => {
     const regex = new RegExp(this.value, 'gi');
-    const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-    const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+    const highlighted = this.value.style('background-color', 'lightpink');
+    const cityName = place.city.replace(regex, highlighted);
+    const stateName = place.state.replace(regex, highlighted);
 
     return`
-      <li>
+      <li class="suggestions-item">
         <span class="city">${cityName}, ${stateName}</span>
         <span class="population">${numberWithCommas(place.population)}</span>
       </li>
@@ -35,20 +36,23 @@ function displayMatches() {
   suggestions.innerHTML = html;
 }
 
-// function updateSearchValue() {
-//   console.log(suggestionsItem);
-//   const newVal = this.querySelector('.city').value;
-//   suggestions.innerHTML = '';
-//   return searchInput.value = newVal;
-// }
+function updateSearchValue() {
+  console.log(suggestionsItem);
+  const newVal = this.querySelector('.city').text;
+  
+  return newVal;
+  
+  searchInput.value = newVal;
+  suggestions.innerHTML = '';
+}
 
 const searchInput = document.querySelector('input');
 const suggestions = document.querySelector('.suggestions');
-// const suggestionsItem = document.querySelector('.suggestions li');
+const suggestionsItem = document.querySelector('.suggestions-item');
 
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
-// suggestionsItem.addEventListener('click', updateSearchValue);
+suggestionsItem.addEventListener('click', updateSearchValue);
 
 
 
